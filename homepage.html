@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nybro Sweden | James Bond Museum </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="css/all.css">
+  <style>
+    .navbar {
+        transition: all 0.4s;
+    }
+    
+    .navbar .nav-link {
+        color: #fff;
+    }
+    
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .navbar .navbar-brand {
+        color: #fff;
+    }
+    
+    
+    /* Change navbar styling on scroll */
+    .navbar.active {
+        background: #fff;
+        box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    
+    .navbar.active .nav-link {
+        color: #555;
+    }
+    
+    .navbar.active .nav-link:hover,
+    .navbar.active .nav-link:focus {
+        color: #555;
+        text-decoration: none;
+    }
+    
+    .navbar.active .navbar-brand {
+        color: #555;
+    }
+
+    .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+      }
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+      }
+    
+    
+    /* Change navbar styling on small viewports */
+    @media (max-width: 991.98px) {
+
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+
+        .navbar {
+            background: #fff;
+        }
+    
+        .navbar .navbar-brand, .navbar .nav-link {
+            color: #555;
+        }
+    }
+
+    .backgroundimage {
+        width: 100%;
+        height: 100vh;
+        background-image: url(img/homephoto.png);
+        background-position: center top;
+        background-size:cover;
+    }
+
+    .panel {
+        border: 1px solid #000000; 
+        border-radius:0 !important;
+        transition: box-shadow 0.5s;
+      }
+      .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+      }
+      .panel-footer .btn:hover {
+        border: 1px solid #000000;
+        background-color: #fff !important;
+        color: #000000;
+      }
+
+      .przycisk .btn:hover {
+        border: 1px solid #000000;
+        background-color: #fff !important;
+        color: #000000;
+      }
+
+      .przycisk .btn {
+        margin: 15px 0;
+        background-color: #000000;
+        color: #fff;
+      }
+
+      .panel-heading {
+        color: #fff !important;
+        background-color: #000000 !important;
+        padding: 25px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .panel-footer {
+        background-color: white !important;
+      }
+      .panel-footer h3 {
+        font-size: 32px;
+      }
+      .panel-footer h4 {
+        color: #aaa;
+        font-size: 14px;
+      }
+      .panel-footer .btn {
+        margin: 15px 0;
+        background-color: #000000;
+        color: #fff;
+      }
+
+    
+    
+
+    .text-small {
+        font-size: 0.9rem !important;
+    }
+
+    .modal-newsletter {	
+      color: #999;
+      width: 480px;
+      font-size: 15px;
+    }
+    .modal-newsletter .modal-content {
+      padding: 40px 50px;
+      border-radius: 1px;		
+      border: none;
+    }
+    .modal-newsletter .modal-header {
+      border-bottom: none;   
+      position: relative;
+      text-align: center;
+      border-radius: 5px 5px 0 0;
+    }
+    .modal-newsletter h4 {
+      color: #000;
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+      margin: 0 0 25px;		
+      text-transform: uppercase;
+    }
+    .modal-newsletter .close {
+      position: absolute;
+      top: -5px;
+        right: -15px;
+      color: #000000;
+      text-shadow: none;
+      opacity: 0.5;
+      width: 32px;
+      height: 32px;
+      border-radius: 20px;
+      font-size: 18px;
+      border: 2px solid;
+      padding: 0;
+    }
+    .modal-newsletter .close:hover {
+      opacity: 0.8;
+    }
+    .modal-newsletter .icon-box {
+      color: #000000;		
+      display: inline-block;
+      z-index: 9;
+      text-align: center;
+      position: relative;
+    }
+    .modal-newsletter .icon-box i {
+      font-size: 110px;
+    }
+    .modal-newsletter .form-control, .modal-newsletter .btn {
+      min-height: 46px;
+      text-align: center;
+      border-radius: 1px; 
+    }
+    .modal-newsletter .form-control {
+      box-shadow: none;
+      border-color: #dbdbdb;
+    }
+    .modal-newsletter .form-control:focus {
+      border-color: #000000;
+      box-shadow: 0 0 8px rgba(73, 197, 193, 0.5);
+    }
+    .modal-newsletter .btn, .modal-newsletter .btn:active {
+      color: #fff;
+      background: #000000 !important;
+      text-decoration: none;
+      transition: all 0.4s;
+      line-height: normal;
+      padding: 6px 20px;
+      min-width: 180px;
+      border: none;
+      margin-top: 20px;
+      font-family: 'Airal', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .modal-newsletter .btn:hover, .modal-newsletter .btn:focus {
+      background: #000000 !important;
+      outline: none;
+    }
+    .modal-newsletter .form-group {
+      margin-top: 30px;
+    }
+    .hint-text {
+      margin: 100px auto;
+      text-align: center;
+    }
+    
+    
+    body {
+        min-height: 110vh;
+        background-color: #fff;
+    }
+
+    hr {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .slideanim {visibility:hidden;}
+    .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+    }
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+
+
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-newsletter">
+      <div class="modal-content">
+        <form action="#pricing" method="post">
+          <div class="modal-header justify-content-center">
+            <div class="icon-box">
+              <img src="img/007logo.png">
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+          </div>
+          <div class="modal-body text-center">
+            <h4>Join our newsletter</h4>	
+            <p>Subscribe to our newsletter to receive the latest updates about 007 James Bond Museum</p>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Enter your email" required>
+              <input type="submit" class="btn btn-primary" value="Subscribe">
+            </div>
+          </div>
+        </form>			
+      </div>
+    </div>
+  </div>
+
+<!-- Navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="img/LOGO.png" height="80px"></a>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+            
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="#pricing" class="nav-link text-uppercase font-weight-bold">Visit <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a href="#exhibitions" class="nav-link text-uppercase font-weight-bold">Exhibitions</a></li>
+                    <li class="nav-item"><a href="#events" class="nav-link text-uppercase font-weight-bold">Events</a></li>
+                    <li class="nav-item"><a href="#shop" class="nav-link text-uppercase font-weight-bold">Shop</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link text-uppercase font-weight-bold">TICKETS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="backgroundimage"></section>
+<br/>
+<br/>
+<br/>
+
+
+<div class="container">
+
+<div class="row text-center">
+  
+<div class="col-sm-12 col-xs-12 py-5 mt-5">
+<div class="panel panel-default text-center">
+<h2 class="text-center display-4"><strong>Open: Monday-Friday: 10:00-16:00, Saturday: 10:00-15:00</strong></h2>
+<h3 class="text-center">Closed: 17-18 May, 31-1 Juni, 10-30 Juni</h3>
+</div>
+</div>
+<div class="container">
+  <div class="pt-5 text-black">
+<h2 class="display-4 text-center">Museum Map</h2>
+<img src="img/mapa.jpg" alt="mapa" width="700" height="400">
+</div>
+</div>
+</div>
+</div>
+
+<div id="events"></div>
+<br/>
+<br/>
+<br/>
+
+<div class="container">
+
+  <div class="pt-5 text-black">
+    <h2 class="display-4 text-center">Upcoming Events</h2>
+<div class="row text-center">
+  <div class="container">
+    <div class="pt-5 text-black">
+  <img src="img/news.png" alt="news" width="400" height="300">
+  <br/>
+  <br/> 
+  <h3 class="text-center">No Time To Die James Bond 30 september 2021</h3>
+</h3>
+  </div>
+  </div>
+</div>
+
+<div id="pricing"></div>
+
+<br/> 
+<br/> 
+<div class="container-fluid">
+  <div class="text-center py-5 mt-5">
+      <h2 class="display-4 text-center">Tickets</h2>
+      <p class="lead mb-3">Choose a ticket by your preferences!</p>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          
+
+
+
+          <h1>Classic Tour</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>-</strong> You must come on the appointed date.</p>
+          <p><strong>-</strong> Basic touring experience.</p>
+          <p><strong>-</strong> Entry by showing tickets at the ticket office.</p>
+          <p><strong>-</strong> Limited tour time.</p>
+        </div>
+        <div class="panel-footer">
+          <h3>200 nok</h3>
+          <button class="btn btn-lg">BUY</button>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+
+
+          <h1>Pro</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>-</strong> You can come visit everytime.</p>
+          <p><strong>-</strong> You can skip the queue.</p>
+          <p><strong>-</strong> Welcome coctail.</p>
+          <p><strong>-</strong> Unlimited tour time.</p>
+        </div>
+        <div class="panel-footer">
+          <h3>500 nok</h3>
+          <button class="btn btn-lg">BUY</button>
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+
+
+          <h1>Champagne Bollinger Tour</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>-</strong> 2-hour tour, in small groups limited to 12 people.</p>
+          <p><strong>-</strong> tasting of 3 wines.</p>
+          <p><strong>-</strong> 2 non-vintage champagnes and 1 vintage champagne.</p>
+          <p><strong>-</strong> With a view to organization, James Bond 007 museum reserves the right to cancel the tour for late arrivals of over 15 minutes.</p>
+          <p><strong>-</strong> Please arrive at least 10 minutes before the start time.</p>
+        </div>
+        <div class="panel-footer">
+          <h3>995 nok</h3>
+          <button class="btn btn-lg">BUY</button>
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+
+
+
+
+
+
+<div id="exhibitions"></div>
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+    <div class="pt-5 text-black">
+            <h2 class="display-4 text-center">Exhibitions</h2>
+
+        <div class="row text-center">
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition1.jpg" alt="JB_Guitar" width="400" height="300">
+                <p class="lead mb-0">James Bond 007 - 60 year Guitar Duesenberg Alliance Series.</p>
+                <p class="lead mb-0">James Bond David Arnold Edition.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition2.jpg" alt="JB_Triumph" width="400" height="300">
+                <p class="lead mb-0">Triumph Speed Triple 1200 RR James Bond 007 Edition 2023. Strictly limited 60 motorcycles, 60 years of Bond 1962-2022.
+                  </p>
+                <p class="lead mb-0">007 Museum have all 3 Triumph, 2 from "No Time To Die" and one 60  Bond 007 years anniversary.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition3.jpg" alt="JB_Tiger" width="400" height="300">
+                <p class="lead mb-0">TRIUMPH Tiger 900.</p>
+                <p class="lead mb-0">JAMES BOND 007 EDITION.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition4.jpg" alt="JB_Cruiser" width="400" height="300">
+                <p class="lead mb-0">BMW 1200 Cruiser Motorcycle Tomorrow Never Dies.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition5.jpg" alt="JB_AstonMartin" width="400" height="300">
+                <p class="lead mb-0">Daniel Craig and Swedish James Bond Gunnar Schäfer Aston Martin JB 007Aston Martin Vantage JB 007 Licence plate.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition6.jpg" alt="JB_LotusEsprit" width="400" height="300">
+                <p class="lead mb-0">For Your Eyes OnlyLotus Esprit S3 Turbo Coupe.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition7.jpg" alt="JB_Heli" width="400" height="300">
+                <p class="lead mb-0">Helicopter Autogiro JT3  Little Nellie Gyrocopter.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition8p2.jpg" alt="JB_Hover" width="400" height="300">
+                <p class="lead mb-0">HOVERCRAFT OSPREY 5  PIERCEBROSNAN "DIE ANOTHER DAY".</p>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition9.jpg" alt="JB_TUKTUK1" width="400" height="300">
+                <img src="img/Exhibition11.jpg" alt="JB_TUKTUK2" width="400" height="300">
+                <p class="lead mb-0">RICKSHAW TUK TUK TAXI JAMES BOND MOVIE OCTOPUSSY.</p>
+              </div>
+            </div>
+
+            
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition12.jpg" alt="JB_Boat" width="400" height="300">
+                <p class="lead mb-0">Glastron GT 150 James Bond boat in “Live and Let Die”.</p>
+              </div>
+            </div>
+            
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition13.jpg" alt="JB_EType" width="400" height="300">
+                <p class="lead mb-0">Jaguar E-Type 1962 British Racing Green.Jaguar Casino Royale1967 David Niven, Peter Sellers.</p>
+              </div>
+            </div>
+            
+            <div class="col-sm-12">
+              <div class="thumbnail">
+                <img src="img/Exhibition10.jpg" alt="JB_EON" width="400" height="300">
+                <p class="lead mb-0">Leica 007 James Bond edition 1962 manufactured and EON Productions Partner for James Bond-Inspired Photography Exhibition and Limited Edition Camera.</p>
+              </div>
+            </div>
+        </div>
+        <div class="container">
+
+          <div class="row text-center przycisk">
+          
+          <div class="col-sm-12 col-xs-12">
+          <div class="text-center">
+          <button type="button" class="btn btn-lg">Discover more</button>
+          </div>
+          </div>
+
+
+
+        <div class="pt-5 text-black">
+            <div class="py-5 mt-5">
+                <h2 class="display-4 text-center">Past Events</h2>
+            </div>
+
+            <div class="row text-center slideanim">
+                <div class="col-sm-6">
+                  <div class="thumbnail">
+                    <img src="img/Event0.jpg" alt="Paris" width="400" height="300">
+                    <p><strong>James Bond Gunnar Schäfer Per Hallberg in Borgholm</strong></p>
+                    <p>7/7-2018 British Car Meet</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="thumbnail">
+                    <img src="img/Event1.jpg" alt="New York" width="400" height="300">
+                    <p><strong>Stay at Palazzo Gattini</strong></p>
+                    <p>Many thanks to Gino Marchionna for our wonderful stay at Palazzo Gattini room nr 304.
+                      Best regards Bond...James Bond.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="thumbnail">
+                    <img src="img/Event1p2.jpg" alt="San Francisco" width="400" height="300">
+                    <p><strong>Daniel Craig visited our museum!</strong></p>
+                    <p>Daniel Craig stayed for 3 weeks at James Bond 007 Museum Nybro Sweden during recording No Time To Die 2019 august.</p>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="thumbnail">
+                      <img src="img/Event2.jpg" alt="San Francisco" width="400" height="300">
+                      <p><strong>Omega Seamaster Diver 300M 007 Edition No Time To Die, Bond 25</strong></p>
+                      <p>The watchmaker Daniel Craig helped design the model he wears as 007 in
+                        the new film “No Time to Die.” Omega 9th Bondfilm and James Bond Mark 25 Years. </p>
+                    </div>
+                  </div>
+                </div>
+    </div>
+</div>
+
+
+
+
+
+  <div class="pt-5 text-black" id="shop">
+    <div class="py-5 mt-5">
+        <h2 class="display-4 text-center">Shop</h2>
+    </div>
+
+    <div class="przycisk">
+    <div class="row text-center slideanim">
+        <div class="col-sm-6">
+          <div class="thumbnail">
+            <img src="img/item1.jpg" alt="Paris" width="400" height="300">
+            <p><strong>James Bond Gunnar Schäfer Per Hallberg in Borgholm</strong></p>
+            <p>7/7-2018 British Car Meet</p>
+            <button type="button" class="btn btn-lg">Add to cart</button>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="thumbnail">
+            <img src="img/item2p2.jpg" alt="New York" width="400" height="300">
+            <p><strong>Stay at Palazzo Gattini</strong></p>
+            <p>Many thanks to Gino Marchionna for our wonderful stay at Palazzo Gattini room nr 304.
+              Best regards Bond...James Bond.</p>
+              <button type="button" class="btn btn-lg">Add to cart</button>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+<div class="py-5 mt-5">   <hr/>
+</div>
+
+
+<footer>
+  <div class="przycisk">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 footer-about">
+          <img class="logo-footer" src="img/007logo.png" alt="logo-footer" data-at2x="assets/img/logo.png">
+          <p>
+            James Bond Materials© 1962 - 2024  United Artists Corporation and Danjaq, LLC.
+          </p>
+          <p>007 Gun Logo© 1962 United Artists Corporation and Danjaq, LLC. 007 Gun Logo, Iris Logo</p>
+          <a href="#"><i class="fab fa-facebook-f"></i></a> 
+          <a href="#"><i class="fab fa-youtube"></i></a> 
+          <a href="#"><i class="fab fa-instagram"></i></a> 
+          <a href="#"><i class="fab fa-twitter"></i></a> 
+              </div>
+        <div class="col-md-4 offset-md-1 footer-contact wow fadeInDown">
+          <h3>Contact</h3>
+              <p><i class="fas fa-map-marker-alt"></i> James Bond 007 Museum, Emmabodav. 20  382 45 Nybro, Sweden</p>
+              <p><i class="fas fa-phone"></i> Phone: +46-481-12960 </p>
+              <p><i class="fas fa-envelope"></i> Email: <a href="mailto:007museum@telia.com">007museum@telia.com</a></p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2188.1695277876483!2d15.889350177137155!3d56.740054315520936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4657b6b78aaae085%3A0xb561fc0e0f9ed847!2sJames%20Bond%20007%20Museum%20Exhibition!5e0!3m2!1sno!2sno!4v1716148062258!5m2!1sno!2sno" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              </div>
+              <div class="col-md-4 footer-links wow fadeInUp">
+                <div class="row">
+                  <div class="col">
+                    <h3>Contact Form</h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <form
+                    class="contact-form d-flex flex-column align-items-center"
+                    action="#"
+                    method="POST"
+                  >
+                    <div class="form-group">
+                      <input
+                        type="name"
+                        class="form-control"
+                        placeholder="Name"
+                        name="name"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email"
+                        name="name"
+                        required
+                      />
+                    </div>
+              
+                    <div class="form-group">
+                      <textarea
+                        class="form-control"
+                        type="text"
+                        placeholder="Message"
+                        rows="2"
+                        name="name"
+                        required
+                      ></textarea>
+                    </div>
+              
+                    <button type="submit" class="btn btn-submit btn-lg">Send</button>
+                  </form>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+</div>
+</footer>
+
+   
+<script src="js/js.js"></script>
+
+<script>
+  $(document).ready(function(){
+    $("#myModal").modal('show');
+  });
+  </script>
+
+
+
+</body>
+</html>
